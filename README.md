@@ -15,9 +15,7 @@ operations and business intelligence queries.
 ## Technologies used
 
 - MySQL 8 / MariaDB 10.11 (compatible SQL, InnoDB engine)
-- Graphviz + DBML (`dbdiagram.io`) for the ER diagram
-- Python (pandas/openpyxl) used only to analyze the source Excel and
-  generate the data-load script
+- DBML (`dbdiagram.io`) for the ER diagram
 
 ## Normalization process
 
