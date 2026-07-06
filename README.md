@@ -14,7 +14,7 @@ operations and business intelligence queries.
 
 ## Technologies used
 
-- MySQL 8 / MariaDB 10.11 (compatible SQL, InnoDB engine)
+- MySQL 8 
 - DBML (`dbdiagram.io`) for the ER diagram
 
 ## Normalization process
