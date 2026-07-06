@@ -1,0 +1,58 @@
+
+Table riwi_city {
+  id_riwi_city int [pk, increment]
+  city_name varchar(80) [not null, unique]
+}
+
+Table riwi_branch {
+  id_riwi_branch int [pk, increment]
+  branch_name varchar(100) [not null, unique]
+  id_riwi_city int [not null]
+}
+
+Table riwi_client {
+  id_riwi_client int [pk, increment]
+  client_name varchar(120) [not null, unique]
+  id_riwi_branch int [not null]
+}
+
+Table riwi_technician {
+  id_riwi_technician int [pk, increment]
+  technician_name varchar(120) [not null, unique]
+}
+
+Table riwi_service_type {
+  id_riwi_service_type int [pk, increment]
+  service_type_name varchar(80) [not null, unique]
+}
+
+Table riwi_equipment_category {
+  id_riwi_equipment_category int [pk, increment]
+  category_name varchar(80) [not null, unique]
+}
+
+Table riwi_equipment {
+  id_riwi_equipment int [pk, increment]
+  equipment_name varchar(120) [not null, unique]
+  id_riwi_equipment_category int [not null]
+}
+
+Table riwi_work_order {
+  id_riwi_work_order int [pk, increment]
+  order_code varchar(20) [not null, unique]
+  service_date date [not null]
+  hours decimal(5,2) [not null]
+  cost decimal(10,2) [not null]
+  id_riwi_technician int [not null]
+  id_riwi_client int [not null]
+  id_riwi_equipment int [not null]
+  id_riwi_service_type int [not null]
+}
+
+Ref: riwi_branch.id_riwi_city > riwi_city.id_riwi_city
+Ref: riwi_client.id_riwi_branch > riwi_branch.id_riwi_branch
+Ref: riwi_equipment.id_riwi_equipment_category > riwi_equipment_category.id_riwi_equipment_category
+Ref: riwi_work_order.id_riwi_technician > riwi_technician.id_riwi_technician
+Ref: riwi_work_order.id_riwi_client > riwi_client.id_riwi_client
+Ref: riwi_work_order.id_riwi_equipment > riwi_equipment.id_riwi_equipment
+Ref: riwi_work_order.id_riwi_service_type > riwi_service_type.id_riwi_service_type
